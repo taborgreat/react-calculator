@@ -15,6 +15,7 @@ const ACTIONS = {
 function reducer(state, { type, load }) {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
+      if(state.currOper !== undefined &&state.currOper.length > 30) return state;
       if (
         load === "0" &&
         (state.currOper === undefined || state.currOper === "")
@@ -37,7 +38,7 @@ function reducer(state, { type, load }) {
     case ACTIONS.SET_OPERATION:
       if (
         (load === "*" || load === "/" || load === "+") &&
-        state.currOper === undefined
+        (state.currOper === undefined || state.currOper === "")
       )
         return state;
       if (
@@ -67,10 +68,11 @@ function reducer(state, { type, load }) {
       };
 
     case ACTIONS.SUBMIT:
+      if(state.currOper === undefined) return state;
       if (regexNumb.test(state.currOper.slice(-1))) {
         return {
           ...state,
-          prevOper: `${eval(state.currOper)}`,
+          prevOper: `${eval(state.currOper).toFixed(2)}`,
           currOper: "",
         };
       }
