@@ -1,0 +1,42 @@
+
+
+body{
+  background-color: aliceblue;
+}
+#output{
+  text-align: center;
+  margin: auto;
+  width: 80%;
+  background-color: white;
+  border: solid black 4px;
+  height: 26vh;
+}
+#prevOper {
+  height:38%;
+  font-size: 2em;
+  background-color: rgb(243, 243, 243);
+  color: darkgreen;
+  margin: auto;
+}
+#currOper{
+  height: 62%;
+  font-size: 3.5em;
+}
+
+#input {
+  padding-top: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  margin: 0 auto;
+}
+button {
+  text-align: center;
+  flex: 30%;
+  height: 5vh;
+  font-size: 120%;
+}
+
+.op {
+  background-color: aquamarine;
+}
