@@ -42,10 +42,10 @@ function reducer(state, { type, load }) {
       )
         return state;
       if (
-        state.currOper.charAt(state.currOper.length - 1) === "." &&
-        load !== "-"
+        state.currOper.charAt(state.currOper.length - 1) === "."
       )
         return state;
+      
       if (
         regex.test(load) &&
         (state.currOper === undefined || state.currOper === "")
@@ -91,14 +91,14 @@ function reducer(state, { type, load }) {
 
 function DigitButton({ dispatch, digit }) {
   return (
-    <button onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, load: digit })}>
+    <button id="numInput"onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, load: digit })}>
       {digit}
     </button>
   );
 }
 function DecimalButton({ dispatch, dec }) {
   return (
-    <button onClick={() => dispatch({ type: ACTIONS.ADD_DECIMAL, load: dec })}>
+    <button id="numInput" onClick={() => dispatch({ type: ACTIONS.ADD_DECIMAL, load: dec })}>
       {dec}
     </button>
   );
@@ -106,7 +106,7 @@ function DecimalButton({ dispatch, dec }) {
 
 function OperationButton({ dispatch, operation }) {
   return (
-    <button
+    <button id="opInput"
       onClick={() => dispatch({ type: ACTIONS.SET_OPERATION, load: operation })}
     >
       {operation}
@@ -115,13 +115,13 @@ function OperationButton({ dispatch, operation }) {
 }
 function SubmitButton({ dispatch }) {
   return (
-    <button onClick={() => dispatch({ type: ACTIONS.SUBMIT })}>SUBMIT</button>
+    <button id="submit" onClick={() => dispatch({ type: ACTIONS.SUBMIT })}>SUBMIT</button>
   );
 }
 
 function ClearButton({ dispatch }) {
   return (
-    <button onClick={() => dispatch({ type: ACTIONS.CLEAR })}>CLEAR</button>
+    <button id="clear" onClick={() => dispatch({ type: ACTIONS.CLEAR })}>CLEAR</button>
   );
 }
 
